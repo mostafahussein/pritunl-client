@@ -32,6 +32,7 @@ class Profile(object):
         self.user_id = None
         self.org_id = None
         self.server_id = None
+        self.password_mode = None
         self.sync_hash = None
         self.sync_token = None
         self.sync_secret = None
@@ -65,6 +66,7 @@ class Profile(object):
             'user_id': self.user_id,
             'org_id': self.org_id,
             'server_id': self.server_id,
+            'password_mode': self.password_mode,
             'sync_hash': self.sync_hash,
             'sync_token': self.sync_token,
             'sync_secret': self.sync_secret,
@@ -103,6 +105,7 @@ class Profile(object):
                     self.user_id = data.get('user_id')
                     self.org_id = data.get('org_id')
                     self.server_id = data.get('server_id')
+                    self.password_mode = data.get('password_mode')
                     self.sync_hash = data.get('sync_hash')
                     self.sync_token = data.get('sync_token')
                     self.sync_secret = data.get('sync_secret')
@@ -161,6 +164,7 @@ class Profile(object):
         self.user_id = conf_data.get('user_id')
         self.org_id = conf_data.get('organization_id')
         self.server_id = conf_data.get('server_id')
+        self.password_mode = conf_data.get('password_mode')
         self.sync_hash = conf_data.get('sync_hash')
         self.sync_token = conf_data.get('sync_token')
         self.sync_secret = conf_data.get('sync_secret')
