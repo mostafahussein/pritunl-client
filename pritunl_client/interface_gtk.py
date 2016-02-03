@@ -172,6 +172,9 @@ class InputDialog:
     def set_input_width(self, width):
         self._entry.set_width_chars(width)
 
+    def set_visibility(self, visibility):
+        self._entry.set_visibility(visibility)
+
     def run(self):
         hbox = gtk.HBox()
         hbox.pack_start(self._label, False, 5, 5)
