@@ -151,6 +151,9 @@ class InputDialog:
     def set_input_width(self, width):
         self._entry_width = width
 
+    def set_visibility(self, visibility):
+        pass
+
     def run(self):
         self._dialog = wx.TextEntryDialog(
             parent=None,
