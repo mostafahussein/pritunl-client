@@ -138,8 +138,8 @@ class Request(BaseHTTPServer.BaseHTTPRequestHandler):
 
         prfl.sync_conf()
 
-        if prfl.auth_passwd and not passwd:
-            self.send_text_response('Authenticator code required', 400)
+        if prfl.auth_type and not passwd:
+            self.send_text_response('Password required', 400)
             return
 
         if not prfl.start(status_callback, connect_callback, passwd=passwd):

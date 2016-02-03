@@ -131,7 +131,7 @@ def client_shell():
         nargs=-1,
     )
     @click.option('--password',
-        help='Authenticator for profile if required',
+        help='Password for profile if required',
         default=None,
     )
     def start_cmd(profile_ids, password):
