@@ -1,7 +1,8 @@
 pritunl-client changelog
 ========================
 
-<%= version %>
+Version 1.0.874.3 2016-02-03
+----------------------------
 
 Add support for pin and password
 
