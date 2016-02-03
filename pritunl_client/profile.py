@@ -93,6 +93,14 @@ class Profile(object):
             raise AttributeError('Config instance has no attribute %r' % name)
         return self.__dict__[name]
 
+    @property
+    def auth_type(self):
+        if self.password_mode:
+            return self.password_mode
+        if self.auth_passwd:
+            return 'password'
+        return None
+
     def load(self):
         try:
             if os.path.exists(self.conf_path):
