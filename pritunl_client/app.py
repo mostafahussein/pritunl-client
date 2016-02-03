@@ -150,19 +150,53 @@ class App(object):
 
         prfl.sync_conf()
 
-        if prfl.auth_passwd:
-            dialog = interface.InputDialog()
-            dialog.set_title(APP_NAME_FORMATED)
-            dialog.set_icon(utils.get_logo())
-            dialog.set_message('Profile Authenticator Required')
-            dialog.set_message_secondary('Enter authenticator key for %s' % (
-                prfl.name))
-            dialog.set_input_label('Authenticator Key:')
-            dialog.set_input_width(16)
-            passwd = dialog.run()
-            dialog.destroy()
-            if passwd is None:
-                return
+        auth_type = prfl.auth_type
+        if auth_type:
+            passwd = ''
+
+            if 'password' in auth_type:
+                dialog = interface.InputDialog()
+                dialog.set_title(APP_NAME_FORMATED)
+                dialog.set_icon(utils.get_logo())
+                dialog.set_message('Profile Password Required')
+                dialog.set_message_secondary('Enter password for %s' % (
+                    prfl.name))
+                dialog.set_input_label('Password:')
+                dialog.set_input_width(16)
+                dialog.set_visibility(False)
+                passwd += dialog.run()
+                dialog.destroy()
+                if passwd is None:
+                    return
+
+            if 'pin' in auth_type:
+                dialog = interface.InputDialog()
+                dialog.set_title(APP_NAME_FORMATED)
+                dialog.set_icon(utils.get_logo())
+                dialog.set_message('Profile Pin Required')
+                dialog.set_message_secondary('Enter pin for %s' % (
+                    prfl.name))
+                dialog.set_input_label('Pin:')
+                dialog.set_input_width(16)
+                dialog.set_visibility(False)
+                passwd += dialog.run()
+                dialog.destroy()
+                if passwd is None:
+                    return
+
+            if 'otp' in auth_type:
+                dialog = interface.InputDialog()
+                dialog.set_title(APP_NAME_FORMATED)
+                dialog.set_icon(utils.get_logo())
+                dialog.set_message('Profile Authenticator Required')
+                dialog.set_message_secondary(
+                    'Enter authenticator key for %s' % (prfl.name))
+                dialog.set_input_label('Authenticator Key:')
+                dialog.set_input_width(16)
+                passwd += dialog.run()
+                dialog.destroy()
+                if passwd is None:
+                    return
 
         dialog = interface.MessageDialog()
         dialog.set_type(MESSAGE_LOADING)
