@@ -146,7 +146,8 @@ class InputDialog:
     def __init__(self):
         self._dialog = gtk.MessageDialog(
             type=gtk.MESSAGE_QUESTION,
-            buttons=gtk.BUTTONS_OK_CANCEL)
+            buttons=gtk.BUTTONS_OK_CANCEL,
+        )
         self._dialog.set_position(gtk.WIN_POS_CENTER)
         self._dialog.set_skip_taskbar_hint(False)
         self._dialog.set_type_hint(gtk.gdk.WINDOW_TYPE_HINT_NORMAL)
