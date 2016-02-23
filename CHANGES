@@ -1,7 +1,8 @@
 pritunl-client changelog
 ========================
 
-<%= version %>
+Version 1.0.894.98 2016-02-23
+-----------------------------
 
 Fix issue with appindicator
 
