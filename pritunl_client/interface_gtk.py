@@ -13,8 +13,7 @@ import os
 HAS_APPINDICATOR = False
 try:
     import appindicator
-    HAS_APPINDICATOR = os.environ.get(
-        'XDG_CURRENT_DESKTOP', '').lower() == 'unity'
+    HAS_APPINDICATOR = True
 except ImportError:
     pass
 
