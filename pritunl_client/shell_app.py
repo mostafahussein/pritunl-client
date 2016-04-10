@@ -9,6 +9,7 @@ import SocketServer
 import threading
 import json
 import httplib
+from socket import error as socket_error
 
 class ThreadingHTTPServer(SocketServer.ThreadingMixIn,
         BaseHTTPServer.HTTPServer):
@@ -226,12 +227,16 @@ class ShellApp(object):
                 args=(status_callback, connect_callback)).start()
 
     def start_server(self):
-        server = ThreadingHTTPServer(
-            ('127.0.0.1', 9797),
-            Request,
-        )
-        logger.info('Starting pritunl-client daemon...', 'shell')
+        try:
+            server = ThreadingHTTPServer(
+                ('127.0.0.1', 9797),
+                Request,
+            )
+            logger.info('Starting pritunl-client daemon...', 'shell')
 
-        self.autostart()
+            self.autostart()
 
-        server.serve_forever()
+            server.serve_forever()
+        except socket_error:
+            logger.info('Address already in use. Make sure that port 9797 is
+            available.', 'shell')
