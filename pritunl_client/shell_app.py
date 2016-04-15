@@ -238,5 +238,5 @@ class ShellApp(object):
 
             server.serve_forever()
         except socket_error:
-            logger.info('Address already in use. Make sure that port 9797 is
+            logger.info('Address already in use. Make sure that port 9797 is\
             available.', 'shell')
